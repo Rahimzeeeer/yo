@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+
+body {
+  font-family: 'Dancing Script', cursive;
+  background: radial-gradient(circle, #fff1f8, #ffe6ea);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #5a2a2a; /* Marron doux */
+}
+
+/* Conteneur principal */
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Titre principal */
+h1 {
+  font-size: 3em;
+  color: #d6336c;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-shadow: 2px 2px 10px rgba(214, 51, 108, 0.2);
+}
+
+/* Boutons */
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+}
+
+/* Style général des boutons */
+button {
+  background: #ffb3c1;
+  border: none;
+  color: white;
+  padding: 20px 40px;
+  font-size: 1.5em;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 250px;
+  box-shadow: 0 6px 10px rgba(255, 0, 0, 0.1);
+}
+
+button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 15px rgba(255, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(2px);
+  background: #ff8fa3;
+}
+
+/* Bouton "Oui" */
+#yes {
+  background: #ff6b81;
+}
+
+#yes:hover {
+  background: #e0526a;
+}
+
+/* Bouton "Non" */
+#no {
+  background: #ffcad4;
+}
+
+#no:hover {
+  background: #ffb3c1;
+}
+
+/* Style de la mystery room */
+.mystery-room {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(255, 0, 102, 0.3);
+  width: 100%;
+  max-width: 500px;
+}
+
+.mystery-room h2 {
+  font-size: 2em;
+  color: #d6336c;
+  margin-bottom: 20px;
+}
+
+/* Texte de l'indice */
+.mystery-room .hint {
+  font-size: 1.2em;
+  color: #a23e57;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+/* Input pour le code */
+#code {
+  padding: 10px;
+  font-size: 1.2em;
+  border: 2px solid #ff6b81;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 300px;
+  margin-bottom: 20px;
+  outline: none;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+/* Bouton pour soumettre le code */
+#submitCode {
+  background: #ff6b81;
+  padding: 15px 40px;
+  font-size: 1.3em;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+#submitCode:hover {
+  background: #e0526a;
+  transform: translateY(-5px);
+}
+
+#submitCode:active {
+  transform: translateY(2px);
+  background: #c7425a;
+}
+
+/* Image du coffre */
+#chestImage {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  transition: transform 0.5s ease-in-out;
+}
+
+#chestImage:hover {
+  transform: scale(1.1);
+}
+
+/* Message d'erreur */
+#message {
+  color: #ff3b6b;
+  font-size: 1.2em;
+  margin-top: 20px;
+  font-weight: 600;
+  text-shadow: 1px 1px 5px rgba(255, 59, 107, 0.3);
+}
+
+
+
+
+
+
+
+
+  
+  
+  
+      
+
+
