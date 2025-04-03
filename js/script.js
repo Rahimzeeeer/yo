@@ -1,56 +1,51 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const noButton = document.getElementById("no");
-    if (noButton) {
-        noButton.addEventListener("mouseover", function() {
-            this.style.position = "absolute";
-            this.style.left = Math.random() * 80 + "vw";
-            this.style.top = Math.random() * 80 + "vh";
-        });
-    }
+    if (window.location.pathname.includes("surprise.html")) { // Vérifie si on est sur la page surprise.html
+        const papers = document.querySelectorAll('.paper');
+        let highestZ = 1;
 
-    const yesButton = document.getElementById("yes");
-    if (yesButton) {
-        yesButton.addEventListener("click", function() {
-            window.location.href = "mystere.html"; // redirection vers mystere.html
-        });
-    }
+        papers.forEach((paper, index) => {
+            paper.style.position = "absolute";
+            paper.style.zIndex = index + 1;
+            paper.style.left = `${10 + index * 20}px`;
+            paper.style.top = `${10 + index * 20}px`;
 
-    const submitCode = document.getElementById("submitCode");
-    if (submitCode) {
-        submitCode.addEventListener("click", function() {
-            let code = document.getElementById("code").value;
-            let chestImage = document.getElementById("chestImage");
-            let chestSound = document.getElementById("chestSound");
+            paper.addEventListener("mousedown", function (e) {
+                e.preventDefault();
+                let offsetX = e.clientX - paper.getBoundingClientRect().left;
+                let offsetY = e.clientY - paper.getBoundingClientRect().top;
 
-            if (code === "7") {
-                // Vérification que l'image du coffre existe
-                if (chestImage) {
-                    chestImage.src = "../images/coffre-ouvert.png"; // Assurez-vous que le chemin de l'image est correct
-                    console.log("Coffre ouvert !");
-                } else {
-                    console.error("Image du coffre introuvable !");
+                paper.style.zIndex = highestZ++;
+
+                function moveAt(pageX, pageY) {
+                    let newX = pageX - offsetX;
+                    let newY = pageY - offsetY;
+
+                    newX = Math.max(0, Math.min(window.innerWidth - paper.clientWidth, newX));
+                    newY = Math.max(0, Math.min(window.innerHeight - paper.clientHeight, newY));
+
+                    paper.style.left = `${newX}px`;
+                    paper.style.top = `${newY}px`;
                 }
 
-                // Vérification que le son existe avant de le jouer
-                if (chestSound) {
-                    chestSound.play();
-                    console.log("Son joué !");
-                } else {
-                    console.error("Son introuvable !");
+                function onMouseMove(e) {
+                    moveAt(e.pageX, e.pageY);
                 }
 
-                // Redirection après 2 secondes
-                setTimeout(() => {
-                    console.log("Redirection vers la page de surprise...");
-                    window.location.href = "html/surprise.html"; // Redirection vers surprise.html
-                }, 2000);
-            } else {
-                // Affichage d'un message d'erreur si le code est incorrect
-                document.getElementById("message").innerText = "Mauvais code, réessaie !";
-            }
+                document.addEventListener("mousemove", onMouseMove);
+
+                function stopMoving() {
+                    document.removeEventListener("mousemove", onMouseMove);
+                    document.removeEventListener("mouseup", stopMoving);
+                }
+
+                document.addEventListener("mouseup", stopMoving);
+            });
+
+            paper.ondragstart = () => false;
         });
     }
 });
+
 
 
 
