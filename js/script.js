@@ -39,6 +39,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     console.error("Son introuvable !");
                 }
 
+                // Redirection après 2 secondes
+                setTimeout(() => {
+                    console.log("Redirection vers la page de surprise...");
+                    window.location.href = "surprise.html"; // Redirection vers surprise.html
+                }, 2000);
+            } else {
+                // Affichage d'un message d'erreur si le code est incorrect
+                document.getElementById("message").innerText = "Mauvais code, réessaie !";
+            }
+        });
+    }
+});
+
 
 
 
