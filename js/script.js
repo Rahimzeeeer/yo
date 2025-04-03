@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const yesButton = document.getElementById("yes");
     if (yesButton) {
         yesButton.addEventListener("click", function() {
-            window.location.href = "../html/mystere.html"; // redirection vers mystere.html
+            window.location.href = "mystere.html"; // redirection vers mystere.html
         });
     }
 
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Redirection après 2 secondes
                 setTimeout(() => {
                     console.log("Redirection vers la page de surprise...");
-                    window.location.href = "../html/surprise.html"; // Redirection vers surprise.html
+                    window.location.href = "html/surprise.html"; // Redirection vers surprise.html
                 }, 2000);
             } else {
                 // Affichage d'un message d'erreur si le code est incorrect
